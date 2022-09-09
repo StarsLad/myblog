@@ -9,9 +9,9 @@ class Tag(models.Model):
     """
     文章标签
     """
-    name = models.CharField(max_length=30, verbose_name='标题名称')
+    name = models.CharField(max_length=30, verbose_name='标签名称')
 
-    # 统计文章数量 并放入后台
+    # 统计文章数 并放入后台
     def get_items(self):
         return len(self.article_set.all())
 
@@ -19,6 +19,7 @@ class Tag(models.Model):
 
     class Meta:
         verbose_name = '标签'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.name
